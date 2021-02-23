@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задание 1</title>
+    <link rel="stylesheet" href="assets/css/task1.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <input type="checkbox" id="check-menu" />
+        <label for="check-menu"></label>
+        <span>Menu</span>
+        <div class="menu">
+          <div class="menu__item">
+            <a href="#block1">item 1</a>
+          </div>
+          <div class="menu__item">
+            <a href="#block2"><div>item 2</div></a>
+          </div>
+          <div class="menu__item">
+            <a href="#block3"><div>item 3</div></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div id="block1" class="container__item">
+        <span>container__item 1</span>
+      </div>
+      <div class="container__item"><span>container__item 2</span></div>
+      <div style="flex-basis: 100%" class="container__item">
+        <span>container__item 3</span>
+      </div>
+      <div class="container__item"><span>container__item 4</span></div>
+      <div class="container__item"><span>container__item 5</span></div>
+      <div style="flex-basis: 60%" class="container__item">
+        <span>container__item 6</span>
+      </div>
+      <div class="container__item"><span>container__item 7</span></div>
+      <div id="block2" class="container__item">
+        <span>container__item 1</span>
+      </div>
+      <div class="container__item"><span>container__item 2</span></div>
+      <div style="flex-basis: 100%" class="container__item">
+        <span>container__item 3</span>
+      </div>
+      <div class="container__item"><span>container__item 4</span></div>
+      <div class="container__item"><span>container__item 5</span></div>
+      <div class="container__item"><span>container__item 6</span></div>
+      <div class="container__item"><span>container__item 7</span></div>
+
+      <div id="block3" class="container__item color1">
+        <span>container__item 1</span>
+      </div>
+      <div class="container__item color1"><span>container__item 2</span></div>
+      <div style="flex-basis: 100%" class="container__item color1">
+        <span>container__item 3</span>
+      </div>
+      <div class="container__item color1"><span>container__item 4</span></div>
+      <div class="container__item color1"><span>container__item 5</span></div>
+      <div style="flex-basis: 60%" class="container__item color1">
+        <span>container__item 6</span>
+      </div>
+      <div class="container__item color1"><span>container__item 7</span></div>
+      <div class="container__item color1"><span>container__item 1</span></div>
+      <div class="container__item color1"><span>container__item 2</span></div>
+      <div style="flex-basis: 100%" class="container__item color1">
+        <span>container__item 3</span>
+      </div>
+      <div class="container__item color1"><span>container__item 4</span></div>
+      <div class="container__item color1"><span>container__item 5</span></div>
+      <div class="container__item color1"><span>container__item 6</span></div>
+      <div class="container__item color1"><span>container__item 7</span></div>
+    </div>
+
+    <script type="text/javascript">
+      // Начало jq функций
+      jQuery(document).ready(function () {
+        // Добавляем вызов функции к конкретным элементам, то есть
+        // по нажатию на конкретные ссылкки мы вызываем функцию
+        jQuery('.menu__item a[href^="#"]').click(function () {
+          // Тут мы получаем id элемента, который написан в ссылке
+          var scroll_el = jQuery(this).attr('href')
+          // тут мы получам расстояние до элемента, которые в ссылке
+          var destination = jQuery(scroll_el).offset().top
+          // Проверочка)
+          if (jQuery(scroll_el).length != 0) {
+            // Встроенная функция анимации до элемента
+            jQuery('html, body').animate({ scrollTop: destination }, 1100)
+          }
+          return false
+        })
+      })
+    </script>
+  </body>
+</html>
